@@ -1,0 +1,60 @@
+{
+  "product": [
+    {
+      "id": 1,
+      "name": "Computer",
+      "price": 150000,
+      "quantity": 20,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 2,
+      "name": "Smartphone",
+      "price": 14000,
+      "quantity": 50,
+      "selected": true,
+      "available": false
+    },
+    {
+      "id": 3,
+      "name": "Television",
+      "price": 100000,
+      "quantity": 25,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 4,
+      "name": "Scanner",
+      "price": 18000,
+      "quantity": 10,
+      "selected": true,
+      "available": true
+    },
+    {
+      "id": 5,
+      "name": "Tablette",
+      "price": 105500,
+      "quantity": 50,
+      "selected": true,
+      "available": false
+    },
+    {
+      "id": 6,
+      "name": "Server",
+      "price": 15000859,
+      "quantity": 5,
+      "selected": true,
+      "available": false
+    },
+    {
+      "id": 7,
+      "name": "Printer",
+      "price": 100000,
+      "quantity": 40,
+      "selected": true,
+      "available": true
+    }
+  ]
+}
