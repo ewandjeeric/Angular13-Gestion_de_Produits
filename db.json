@@ -13,7 +13,7 @@
       "name": "Smartphone",
       "price": 14000,
       "quantity": 50,
-      "selected": true,
+      "selected": false,
       "available": false
     },
     {
@@ -21,15 +21,15 @@
       "name": "Television",
       "price": 100000,
       "quantity": 25,
-      "selected": true,
-      "available": true
+      "selected": false,
+      "available": false
     },
     {
       "id": 4,
       "name": "Scanner",
       "price": 18000,
       "quantity": 10,
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -37,23 +37,15 @@
       "name": "Tablette",
       "price": 105500,
       "quantity": 50,
-      "selected": true,
-      "available": false
-    },
-    {
-      "id": 6,
-      "name": "Server",
-      "price": 15000859,
-      "quantity": 5,
-      "selected": true,
+      "selected": false,
       "available": false
     },
     {
       "id": 7,
       "name": "Printer",
-      "price": 100000,
+      "price": 150200,
       "quantity": 40,
-      "selected": true,
+      "selected": false,
       "available": true
     }
   ]
