@@ -5,7 +5,7 @@
       "name": "Computer",
       "price": 150000,
       "quantity": 20,
-      "selected": true,
+      "selected": false,
       "available": true
     },
     {
@@ -21,7 +21,7 @@
       "name": "Television",
       "price": 100000,
       "quantity": 25,
-      "selected": false,
+      "selected": true,
       "available": false
     },
     {
@@ -37,7 +37,7 @@
       "name": "Tablette",
       "price": 105500,
       "quantity": 50,
-      "selected": false,
+      "selected": true,
       "available": false
     },
     {

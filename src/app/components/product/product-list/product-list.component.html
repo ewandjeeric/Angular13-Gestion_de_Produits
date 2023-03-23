@@ -21,37 +21,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let p of result.data">
-          <th>{{p.id}}</th>
-          <td>{{p.name}}</td>
-          <td>{{p.price}}</td>
-          <td>{{p.quantity}}</td>
-          <td>
-            <span class="btn btn-sm">
-              <span *ngIf="p.selected"><i class="fa fa-check-circle-o fa-2x" aria-hidden="true"></i></span>
-              <span *ngIf="!p.selected"><i class="fa fa-circle-o fa-2x" aria-hidden="true"></i></span>
-            </span>
-          </td>
-          <td>
-            <span class="btn btn-sm">
-              <span *ngIf="p.available"><i class="fa fa-toggle-on fa-2x" aria-hidden="true"></i></span>
-              <span *ngIf="!p.available"><i class="fa fa fa-toggle-off fa-2x" aria-hidden="true"></i></span>
-            </span>
-          </td>
-          <td>
-            <button (click)="onSelect(p)" type="button" [ngClass]="p.selected?'btn-success':'btn-warning'"
-              class="btn btn-sm m-1">
-              <span *ngIf="p.selected">Unselect</span>
-              <span *ngIf="!p.selected">Select</span>
-            </button>
-            <button (click)="onDelect(p)" type="button" class="btn btn-sm btn-danger m-1">
-              <span class="fa fa-trash fa-lg"></span>
-            </button>
-            <button (click)="onEdit(p)" type="button" class="btn btn-sm btn-info m-1">
-              <span class="fa fa-pencil-square-o fa-lg"></span>
-            </button>
-          </td>
-        </tr>
+       <app-productitem *ngFor="let p of result.data" style="display:contents" [product]="p" (productEventEmitter)=" onActionEvent($event)"></app-productitem>
       </tbody>
     </table>
 

@@ -1,0 +1,31 @@
+<tr *ngIf="product">
+  <th>{{product.id}}</th>
+  <td>{{product.name}}</td>
+  <td>{{product.price}}</td>
+  <td>{{product.quantity}}</td>
+  <td>
+    <span class="btn btn-sm">
+      <span *ngIf="product.selected"><i class="fa fa-check-circle-o fa-2x" aria-hidden="true"></i></span>
+      <span *ngIf="!product.selected"><i class="fa fa-circle-o fa-2x" aria-hidden="true"></i></span>
+    </span>
+  </td>
+  <td>
+    <span class="btn btn-sm">
+      <span *ngIf="product.available"><i class="fa fa-toggle-on fa-2x" aria-hidden="true"></i></span>
+      <span *ngIf="!product.available"><i class="fa fa fa-toggle-off fa-2x" aria-hidden="true"></i></span>
+    </span>
+  </td>
+  <td>
+    <button (click)="onSelect(product)" type="button" [ngClass]="product.selected?'btn-success':'btn-warning'"
+      class="btn btn-sm m-1">
+      <span *ngIf="product.selected">Unselect</span>
+      <span *ngIf="!product.selected">Select</span>
+    </button>
+    <button (click)="onDelect(product)" type="button" class="btn btn-sm btn-danger m-1">
+      <span class="fa fa-trash fa-lg"></span>
+    </button>
+    <button (click)="onEdit(product)" type="button" class="btn btn-sm btn-info m-1">
+      <span class="fa fa-pencil-square-o fa-lg"></span>
+    </button>
+  </td>
+</tr>

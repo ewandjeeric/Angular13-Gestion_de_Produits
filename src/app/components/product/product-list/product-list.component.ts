@@ -29,4 +29,13 @@ export class ProductListComponent implements OnInit {
   onEdit(p: Product) {
     this.productEventEmitter.emit({ type: ProductActionType.EDIT_PRODUCT, payload:p });
   }
+
+  onActionEvent($event: ActionEvent) {
+    switch ($event.type) {
+      case ProductActionType.SELECT_PRODUCT: this.onSelect($event.payload); break;
+      case ProductActionType.DELETE_PRODUCT: this.onDelect($event.payload); break;
+      case ProductActionType.EDIT_PRODUCT: this.onEdit($event.payload); break;
+
+    }
+  }
 }

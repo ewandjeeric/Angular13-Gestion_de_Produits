@@ -13,6 +13,7 @@ export class ProductNavBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.onGetAllProducts();
   }
 
   onGetAllProducts() {
