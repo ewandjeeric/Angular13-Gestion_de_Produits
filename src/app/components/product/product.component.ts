@@ -6,6 +6,7 @@ import {Observable,of} from "rxjs";
 import {catchError, map, startWith} from "rxjs/operators";
 import {AppDataState, DataStateEnum, ProductActionType} from "../../state/product.state";
 import {Router} from "@angular/router";
+import { EventDriverService } from 'src/app/services/event-driver.service';
 
 @Component({
   selector: 'app-product',
@@ -18,9 +19,23 @@ export class ProductComponent implements OnInit {
   readonly  DataStateEnum = DataStateEnum;
 
 
-  constructor(private productService:ProductServices, private router:Router) { }
+  constructor(private productService:ProductServices, private router:Router,
+              private eventDriverService:EventDriverService) { }
 
   ngOnInit(): void {
+    this.eventDriverService.sourceEventSubjectObservable.subscribe((event:ActionEvent)=>{
+      switch (event.type) {
+        case ProductActionType.GET_ALL_PRODUCT: this.onGetAllProducts(); break;
+        case ProductActionType.GET_SELECTED_PRODUCT: this.onSelectedProducts(); break;
+        case ProductActionType.GET_AVAILABLE_PRODUCT: this.onAvailableProducts(); break;
+        case ProductActionType.SEARCH_PRODUCT: this.onSearch(event.payload); break;
+        case ProductActionType.NEW_PRODUCT: this.addProduct(); break;
+        case ProductActionType.SELECT_PRODUCT: this.onSelect(event.payload); break;
+        case ProductActionType.DELETE_PRODUCT: this.onDelect(event.payload); break;
+        case ProductActionType.EDIT_PRODUCT: this.onEdit(event.payload); break;
+
+      }
+    })
   }
   onGetAllProducts() {
     this.product$ = this.productService.getAllProduct().pipe(
@@ -76,7 +91,7 @@ export class ProductComponent implements OnInit {
     this.router.navigateByUrl("/editproduct/"+p.id);
   }
 
-  onActionEvent($event: ActionEvent) {
+  /*onActionEvent($event: ActionEvent) {
     switch ($event.type) {
       case ProductActionType.GET_ALL_PRODUCT: this.onGetAllProducts(); break;
       case ProductActionType.GET_SELECTED_PRODUCT: this.onSelectedProducts(); break;
@@ -90,4 +105,5 @@ export class ProductComponent implements OnInit {
     }
 
   }
+  */
 }

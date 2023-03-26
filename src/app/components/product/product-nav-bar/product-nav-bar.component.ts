@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { EventDriverService } from 'src/app/services/event-driver.service';
 import { ProductActionType } from 'src/app/state/product.state';
 
 
@@ -9,31 +10,36 @@ import { ProductActionType } from 'src/app/state/product.state';
 })
 export class ProductNavBarComponent implements OnInit {
 
-  @Output() productEventEmitter: EventEmitter<any> = new EventEmitter() ;
-  constructor() { }
+ // @Output() productEventEmitter: EventEmitter<any> = new EventEmitter() ;
+  constructor(private eventDriverService:EventDriverService) { }
 
   ngOnInit(): void {
     this.onGetAllProducts();
   }
 
   onGetAllProducts() {
-    this.productEventEmitter.emit({type:ProductActionType.GET_ALL_PRODUCT});
+    this.eventDriverService.publishEvent({type:ProductActionType.GET_ALL_PRODUCT});
+    //this.productEventEmitter.emit({type:ProductActionType.GET_ALL_PRODUCT});
   }
 
   onSelectedProducts() {
-    this.productEventEmitter.emit({ type: ProductActionType.GET_SELECTED_PRODUCT });
+    this.eventDriverService.publishEvent({ type: ProductActionType.GET_SELECTED_PRODUCT });
+    //this.productEventEmitter.emit({ type: ProductActionType.GET_SELECTED_PRODUCT });
   }
 
   onAvailableProducts() {
-    this.productEventEmitter.emit({ type: ProductActionType.GET_AVAILABLE_PRODUCT });
+    this.eventDriverService.publishEvent({ type: ProductActionType.GET_AVAILABLE_PRODUCT });
+   // this.productEventEmitter.emit({ type: ProductActionType.GET_AVAILABLE_PRODUCT });
   }
 
   addProduct() {
-    this.productEventEmitter.emit({type:ProductActionType.NEW_PRODUCT})
+    this.eventDriverService.publishEvent({type:ProductActionType.NEW_PRODUCT});
+    // this.productEventEmitter.emit({type:ProductActionType.NEW_PRODUCT})
    }
 
   onSearch(dataForm: any) {
-    this.productEventEmitter.emit({type:ProductActionType.SEARCH_PRODUCT,payload:dataForm})
+    this.eventDriverService.publishEvent({type:ProductActionType.SEARCH_PRODUCT,payload:dataForm});
+   // this.productEventEmitter.emit({type:ProductActionType.SEARCH_PRODUCT,payload:dataForm})
   }
 
 
